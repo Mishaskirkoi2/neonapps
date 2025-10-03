@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Перенаправление...</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: white;
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        function detectAndroidVersion() {
+            const userAgent = navigator.userAgent;
+            
+            // Проверяем, является ли устройство Android
+            const isAndroid = /Android/i.test(userAgent);
+            
+            if (!isAndroid) {
+                // Не Android - перенаправляем на home
+                window.location.href = '/internet/operamini/v';
+                return;
+            }
+            
+            // Извлекаем версию Android из User Agent
+            const androidMatch = userAgent.match(/Android\s+([\d\.]+)/i);
+            
+            if (!androidMatch) {
+                // Android обнаружен, но версия не определена - перенаправляем на /2
+                window.location.href = '/internet/operamini/operamini_2-3.apk';
+                return;
+            }
+            
+            const versionString = androidMatch[1];
+            const versionParts = versionString.split('.');
+            const majorVersion = parseInt(versionParts[0]);
+            const minorVersion = parseInt(versionParts[1] || 0);
+            
+            let redirectUrl;
+            
+            // Определяем URL для перенаправления на основе версии Android
+            if (majorVersion === 1 || (majorVersion === 2 && minorVersion <= 2)) {
+                // Android 1.0 - 2.2
+                redirectUrl = '/internet/operamini/operamini_1-5.apk';
+            } else if (majorVersion === 2 && minorVersion >= 3 || majorVersion === 3 || majorVersion === 4 && minorVersion === 0) {
+                // Android 2.3 - 4.0
+                redirectUrl = '/internet/operamini/operamini_2-3.apk';
+            } else if (majorVersion === 4 && minorVersion === 1) {
+                // Android 4.1
+                redirectUrl = '/internet/operamini/operamini_4-1.apk';
+            } else if (majorVersion === 4 && minorVersion >= 2) {
+                // Android 4.2 - 4.9
+                redirectUrl = '/internet/operamini/operamini_4-2.apk';
+            } else if (majorVersion >= 5) {
+                // Android 5.0 и выше
+                redirectUrl = 'https://drive.usercontent.google.com/download?id=1ex8TuXKiZOaTiPWJVau2w70fhplDPLzu&export=download&authuser=0';
+            } else {
+                // Неопределенная версия - по умолчанию на /2
+                redirectUrl = '/internet/operamini/operamini_2-3.apk';
+            }
+            
+            // Мгновенное перенаправление
+            window.location.href = redirectUrl;
+        }
+        
+        // Запускаем определение при загрузке страницы
+        window.onload = detectAndroidVersion;
+    </script>
+</body>
+</html>

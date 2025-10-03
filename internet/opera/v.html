@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opera - NeonApps</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+	    <!-- Подключение шапки с внешнего сервера -->
+    <iframe src="/header.html" 
+            class="header-container" 
+            scrolling="no" 
+            frameborder="0"
+            sandbox="allow-scripts allow-same-origin allow-top-navigation"
+            onload="this.style.height = this.contentWindow.document.body.scrollHeight + 'px'">
+    </iframe>
+    
+    <div class="container">
+        <div class="app-info">
+            <div class="app-info-top">
+                <img src="/internet/opera.png" alt="Opera" class="app-icon-large">
+                <div class="app-details">
+                    <div class="app-name-large">Opera</div>
+                    <div class="app-requirement-large">Android 1.6+</div>
+                    <div class="app-architecture">Архитектура: ARMv6+</div>
+                </div>
+            </div>
+          <a href="https://drive.usercontent.google.com/download?id=1ICDbDlHm0LdtIvuT0Aoy2n-RLEGt0E8q&export=download&authuser=0" class="download-btn-large">Android 5.0+</a>
+          <a href="https://drive.usercontent.google.com/download?id=1h__CG3R7MWgEzfdylHqeqKXXBdAXmKRh&export=download&authuser=0" class="download-btn-large">Android 4.4+</a>
+          <a href="https://drive.usercontent.google.com/download?id=1drkrDJP1CvRg5g5fWag-N0BBN2Wucztv&export=download&authuser=0" class="download-btn-large">Android 4.1+</a>
+          <a href="https://drive.usercontent.google.com/download?id=1EY__Rq-38VhA7-kzPB8fNsJ3G8CkousO&export=download&authuser=0" class="download-btn-large">Android 4.0+</a>
+		  <a href="https://drive.usercontent.google.com/download?id=1vgvdicLOcd2bmXCmBn4Cflp_OJAn20tq&export=download&authuser=0" class="download-btn-large">Android 1.6+</a>
+        </div>
+
+    <!-- Подключение футера с внешнего сервера -->
+    <iframe src="/legalelement.html" 
+            class="footer-container" 
+            scrolling="no" 
+            frameborder="0"
+            onload="this.style.height = this.contentWindow.document.body.scrollHeight + 'px'">
+    </iframe>
+
+    <script>
+        // Автоматическое изменение высоты iframe под содержимое футера
+        function resizeIframe() {
+            const iframe = document.querySelector('.footer-container');
+            if (iframe) {
+                try {
+                    iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+                } catch (e) {
+                    // Если возникают проблемы с CORS, устанавливаем фиксированную высоту
+                    iframe.style.height = '200px';
+                }
+            }
+        }
+
+        // Изменяем размер при загрузке страницы и изменении размера окна
+        window.addEventListener('load', resizeIframe);
+        window.addEventListener('resize', resizeIframe);
+    </script>
+</body>
+</html>

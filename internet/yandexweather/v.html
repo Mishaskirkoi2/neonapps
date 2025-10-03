@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Яндекс.Погода- KENOMARKET</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div id="header-container"></div>
+    
+    <div class="container">
+        <div class="app-info">
+            <div class="app-info-top">
+                <img src="/internet/yandexweather.png" alt="Яндекс.Погода" class="app-icon-large">
+                <div class="app-details">
+                    <div class="app-name-large">Яндекс.Погода</div>
+                    <div class="app-requirement-large">Android 1.6+</div>
+                    <div class="app-architecture">Архитектура: ARMv6+</div>
+                </div>
+            </div>
+          <a href="https://drive.usercontent.google.com/download?id=1Jei7gUyV0biLmYQxuK_elz4PCGRk5eum&export=download&authuser=0" class="download-btn-large">Android 4.0+</a>
+          <a href="https://drive.usercontent.google.com/download?id=1D0Fywjc1zMO_xn2IH67QV0ww1f1xoySF&export=download&authuser=0" class="download-btn-large">Android 2.0+</a>
+          <a href="https://drive.usercontent.google.com/download?id=1FDqfkyN3-itUh8L-MIm5uQIkYEcmPZDF&export=download&authuser=0" class="download-btn-large">Android 1.6+</a>
+        </div>
+
+    <script>
+        // Загружаем header
+        fetch('/header.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('header-container').innerHTML = html;
+            })
+            .catch(error => console.error('Ошибка загрузки header:', error));
+
+        // Загружаем footer
+        fetch('/legalelement.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('footer-container').innerHTML = html;
+            })
+            .catch(error => console.error('Ошибка загрузки footer:', error));
+    </script>
+</body>
+
+
+</html>
+
