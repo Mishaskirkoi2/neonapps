@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base target="_parent">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: transparent !important;
+            color: #ffffff;
+            line-height: 1.4;
+       }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: transparent; /* Прозрачный фон */
+            border-radius: 10px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .logo-link {
+            text-decoration: none;
+            color: #4CAF50;
+            cursor: pointer;
+        }
+
+        .logo-link:hover,
+        .logo-link:visited,
+        .logo-link:active {
+            text-decoration: none;
+            color: #4CAF50;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #808080;
+            margin-bottom: 30px;
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .category-btn {
+            display: block;
+            padding: 12px 20px;
+            background: linear-gradient(to bottom, #4CAF50, #45a049);
+            color: white;
+            text-decoration: none;
+            border: 1px solid #3e8e41;
+            font-size: 1rem;
+            text-align: center;
+            transition: all 0.2s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .category-btn:hover {
+            background: linear-gradient(to bottom, #45a049, #4CAF50);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .categories {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .category-btn {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.7rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <div class="header">
+            <h1><a href="/" class="logo-link">NeonApps</a></h1>
+            <div class="subtitle">Только проверенные старые приложения</div>
+        </div>
+
+        <div class="categories">
+            <a href="/programs" class="category-btn">💻 Программы</a>
+            <a href="/games" class="category-btn">🎮 Игры</a>
+            <a href="/internet" class="category-btn">🌐 Интернет</a>
+            <a href="/customs" class="category-btn">🎨 Кастомизация</a>
+        </div>
+    </div>
+</body>
+</html>

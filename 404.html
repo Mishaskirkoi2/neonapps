@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeonApps - Ошибка 404</title>
+    <link rel="stylesheet" href="/stylesnew.css">
+</head>
+<body>
+     <!-- Подключение шапки с внешнего сервера -->
+    <iframe src="/header.html" 
+            class="header-container" 
+            scrolling="no" 
+            frameborder="0"
+            sandbox="allow-scripts allow-same-origin allow-top-navigation"
+            onload="this.style.height = this.contentWindow.document.body.scrollHeight + 'px'">
+    </iframe>
+
+    <div class="container">
+        <div class="apps-section">
+            <h2 class="apps-title">Ошибка 404: Страница, которая вам нужна, не найдена, но возможно вам понравятся эти приложения:</h2>
+        </div>
+
+        <div class="more-apps">
+            <a href="/" class="more-apps-btn">Перейти на главную</a>
+        </div>
+
+        <div class="apps-grid">
+            <div class="app-card">
+                <img src="/internet/facebooklite.png" alt="Facebook Lite" class="app-icon">
+                <div class="app-card-content">
+                    <div class="app-name">Facebook Lite</div>
+                    <div class="app-requirement">Android 2.3+</div>
+                    <a href="/internet/facebooklite" class="download-btn">Скачать</a>
+                </div>
+            </div>
+            <div class="app-card">
+                <img src="/internet/operamini.png" alt="Opera Mini" class="app-icon">
+                <div class="app-card-content">
+                    <div class="app-name">Opera Mini</div>
+                    <div class="app-requirement">Android 1.5+</div>
+                    <a href="/internet/operamini" class="download-btn">Скачать</a>
+                </div>
+            </div>
+        </div>
+            
+        <div class="apps-grid">
+            <div class="app-card">
+                <img src="/internet/firefoxbrowser.png" alt="Firefox" class="app-icon">
+                <div class="app-card-content">
+                    <div class="app-name">Firefox</div>
+                    <div class="app-requirement">Android 2.2+</div>
+                    <a href="/internet/firefox" class="download-btn">Скачать</a>
+                </div>
+            </div>
+            <div class="app-card">
+                <img src="/internet/ucbrowser.png" alt="UC Browser" class="app-icon">
+                <div class="app-card-content">
+                    <div class="app-name">UC Browser</div>
+                    <div class="app-requirement">Android 2.2+</div>
+                    <a href="/internet/ucbrowser" class="download-btn">Скачать</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="more-apps">
+            <a href="https://www.neonapps.ru" class="more-apps-btn">Больше приложений</a>
+            <a href="http://about.kenomarket.pl/telegram" class="more-apps-btn">Мы в Telegram</a>
+        </div>
+    </div>
+
+    <!-- Подключение футера с внешнего сервера -->
+    <iframe src="/legalelement.html" 
+            class="footer-container" 
+            scrolling="no" 
+            frameborder="0"
+            sandbox="allow-scripts allow-same-origin allow-top-navigation"
+            onload="this.style.height = this.contentWindow.document.body.scrollHeight + 'px'">
+    </iframe>
+
+    <script src="/screenshots.js"></script>
+    <script>
+        // Автоматическое изменение высоты iframe под содержимое
+        function resizeIframes() {
+            const iframes = document.querySelectorAll('iframe');
+            iframes.forEach(iframe => {
+                try {
+                    iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+                } catch (e) {
+                    // Если возникают проблемы с CORS, устанавливаем фиксированную высоту
+                    if (iframe.classList.contains('header-container')) {
+                        iframe.style.height = '180px';
+                    } else {
+                        iframe.style.height = '200px';
+                    }
+                }
+            });
+        }
+
+        // Изменяем размер при загрузке страницы и изменении размера окна
+        window.addEventListener('load', resizeIframes);
+        window.addEventListener('resize', resizeIframes);
+    </script>
+
+     <script>
+        setTimeout(function() {
+            window.location.href = "/";
+        }, 5000);
+    </script>
+</body>
+</html>

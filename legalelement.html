@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base target="_parent">
+    <style>
+        /* Основные стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: transparent !important;
+            color: #ffffff;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #333;
+            background: #1a1a1a;
+            margin-top: 20px;
+        }
+
+        .footer-copyright {
+            font-size: 0.9rem;
+            color: #cccccc;
+            margin-bottom: 10px;
+        }
+
+        .footer-title {
+            font-size: 1rem;
+            color: #ffffff;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .footer-link {
+            color: #4CAF50;
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 5px 10px;
+            transition: all 0.2s;
+        }
+
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .social-icon {
+            width: 32px;
+            height: 32px;
+            transition: opacity 0.2s;
+        }
+
+        .social-icon:hover {
+            opacity: 0.8;
+        }
+
+        /* Медиа-запросы для адаптивности */
+        @media (max-width: 768px) {
+            .footer-links {
+                gap: 10px;
+            }
+
+            .footer-link {
+                font-size: 0.8rem;
+                padding: 3px 6px;
+            }
+
+            .social-icon {
+                width: 28px;
+                height: 28px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer {
+                padding: 15px;
+            }
+
+            .footer-copyright {
+                font-size: 0.8rem;
+            }
+
+            .footer-title {
+                font-size: 0.9rem;
+            }
+
+            .social-icon {
+                width: 24px;
+                height: 24px;
+            }
+        }
+
+        /* Светлая тема */
+        body.light-theme {
+            color: #333333;
+        }
+
+        .light-theme .footer {
+            border-top: 1px solid #dddddd;
+            background: #f5f5f5;
+        }
+
+        .light-theme .footer-copyright {
+            color: #666666;
+        }
+
+        .light-theme .footer-title {
+            color: #333333;
+        }
+
+        .light-theme .footer-link {
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <div class="footer">
+        <div class="footer-copyright">neonapps.ru ©2025. Все права защищены.</div>
+        <div class="footer-title">NeonApps - Только проверенные старые приложения</div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="http://about.kenomarket.pl/terms" class="footer-link">информация</a>
+                <a href="http://about.kenomarket.pl/contact" class="footer-link">написать нам</a>
+                <a href="http://about.kenomarket.pl/smartdownload" class="footer-link">умная загрузка</a>
+                <a href="https://www.kenomarket.pl/webcatalog" class="footer-link">веб каталог</a>
+                <a href="http://about.kenomarket.pl/url-shortened" class="footer-link">сократитель ссылок</a>
+                <a href="http://about.kenomarket.pl" class="footer-link">информационный сайт</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://blog.kenomarket.pl" target="_parent">
+                    <img src="/social/rss1.png" alt="Блог" class="social-icon">
+                </a>
+                <a href="https://vk.com/kenomarket" target="_parent">
+                    <img src="/social/vk1.jpg" alt="VK" class="social-icon">
+                </a>
+                <a href="https://telegram.me/neonapps" target="_parent">
+                    <img src="/social/telegram1.png" alt="Telegram" class="social-icon">
+                </a>
+                <a href="https://discord.gg/UUsfJc5XWr" target="_parent">
+                    <img src="/social/discord1.png" alt="Discord" class="social-icon">
+                </a>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Инициализация темы
+        function initTheme() {
+            // Получаем параметр theme из URL
+            var search = window.location.search || '';
+            var theme = 'dark'; // Тёмная тема по умолчанию
+            if (search && search.length > 1) {
+                var params = search.substring(1).split('&');
+                for (var i = 0; i < params.length; i++) {
+                    var param = params[i].split('=');
+                    if (param[0] === 'theme' && param[1]) {
+                        theme = param[1].toLowerCase();
+                        break;
+                    }
+                }
+            }
+
+            // Применяем тему
+            applyTheme(theme);
+        }
+
+        // Применение темы
+        function applyTheme(theme) {
+            var footer = document.querySelector('.footer');
+            var debug = document.getElementById('debug');
+            // Устанавливаем класс для body
+            document.body.className = theme === 'light' ? 'light-theme' : '';
+            // Устанавливаем inline-стили для footer
+            if (footer) {
+                footer.style.backgroundColor = theme === 'light' ? '#f5f5f5' : '#1a1a1a';
+                footer.style.borderTopColor = theme === 'light' ? '#dddddd' : '#333';
+            }
+            // Отладка: показываем текущую тему
+            if (debug) {
+                debug.innerHTML = 'Theme: ' + theme + ', URL: ' + window.location.search;
+            }
+            // Принудительный reflow
+            setTimeout(function() {
+                if (footer) {
+                    footer.style.display = 'none';
+                    footer.offsetHeight;
+                    footer.style.display = '';
+                }
+                // Повторное применение стилей через 200ms
+                setTimeout(function() {
+                    if (footer) {
+                        footer.style.backgroundColor = theme === 'light' ? '#f5f5f5' : '#1a1a1a';
+                        footer.style.borderTopColor = theme === 'light' ? '#dddddd' : '#333';
+                    }
+                }, 200);
+            }, 0);
+        }
+
+        // Запуск инициализации
+        if (document.addEventListener) {
+            document.addEventListener('DOMContentLoaded', initTheme);
+        } else if (document.attachEvent) {
+            document.attachEvent('onreadystatechange', function() {
+                if (document.readyState === 'complete' || document.readyState === 'interactive') {
+                    initTheme();
+                }
+            });
+        } else {
+            window.onload = initTheme;
+        }
+    </script>
+</body>
+</html>

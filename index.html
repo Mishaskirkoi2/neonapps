@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeonApps - Только проверенные старые приложения</title>
+
+    <meta name="theme-color" content="#00ff88">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="NeonApps">
+    
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    
+    <link rel="stylesheet" href="/stylesnew.css">
+    <link rel="stylesheet" href="/telegrambanner.css">
+</head>
+<body>
+    <!-- Баннер Telegram -->
+    <div class="opera-banner">
+        <img src="/neonapps_logo.jpg" class="opera-icon">
+        <div class="opera-info">
+            <div class="opera-title">Наш новый чат в Telegram</div>
+            <div class="opera-description">Здесь мы обсуждаем старые устройства, подписывайтесь!</div>
+        </div>
+        <a href="https://telegram.me/neonapps" class="opera-download">Вступить</a>
+    </div>
+
+    <!-- Шапка сайта -->
+    <iframe src="/header.html" 
+            class="header-container" 
+            scrolling="no" 
+            frameborder="0"
+            sandbox="allow-scripts allow-same-origin allow-top-navigation"
+            onload="this.style.height = this.contentWindow.document.body.scrollHeight + 'px'"
+            style="margin-top: 60px;">
+    </iframe>
+
+    <div class="container">
+        <div class="apps-section">
+            <h2 class="apps-title">Лучшие приложения</h2>
+        </div>
+
+        <!-- Сетка приложений -->
+        <div class="apps-grid">
+            <div class="app-card">
+                <img src="/internet/facebooklite.png" alt="Facebook Lite" class="app-icon">
+                <div class="app-card-content">
+                    <div class="app-name">Facebook Lite</div>
+                    <div class="app-requirement">Android 2.3+</div>
+                    <a href="/internet/facebooklite" class="download-btn">Скачать</a>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <img src="/internet/operamini.png" alt="Opera Mini" class="app-icon">
+                <div class="app-card-content">
+                    <div class="app-name">Opera Mini</div>
+                    <div class="app-requirement">Android 1.5+</div>
+                    <a href="/internet/operamini" class="download-btn">Скачать</a>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <img src="/internet/firefoxbrowser.png" alt="Firefox" class="app-icon">
+                <div class="app-card-content">
+                    <div class="app-name">Firefox</div>
+                    <div class="app-requirement">Android 2.2+</div>
+                    <a href="/internet/firefox" class="download-btn">Скачать</a>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <img src="/internet/ucbrowser.png" alt="UC Browser" class="app-icon">
+                <div class="app-card-content">
+                    <div class="app-name">UC Browser</div>
+                    <div class="app-requirement">Android 2.2+</div>
+                    <a href="/internet/ucbrowser" class="download-btn">Скачать</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Кнопка больше приложений -->
+        <div class="more-apps">
+            <a href="https://www.kenomarket.pl" class="more-apps-btn">Больше приложений</a>
+        </div>
+
+        <!-- Описание сайта -->
+        <div class="description">
+            <p>На нашем сайте собраны только проверенные приложения для выживания на старых версиях Android. Мы тщательно отбираем каждое приложение, чтобы обеспечить совместимость с устаревшими устройствами и гарантировать их стабильную работу. Наша цель - продлить жизнь вашим старым Android-устройствам, предоставив доступ к качественному программному обеспечению.</p>
+        </div>
+
+        <!-- Кнопка Telegram -->
+        <div class="more-apps">
+            <a href="https://telegram.me/neonapps" class="more-apps-btn">Мы в Telegram</a>
+        </div>
+    </div>
+
+    <!-- Футер -->
+    <iframe src="/legalelement.html" 
+            class="footer-container" 
+            scrolling="no" 
+            frameborder="0"
+            onload="this.style.height = this.contentWindow.document.body.scrollHeight + 'px'">
+    </iframe>
+
+    <script>
+    // Автоматическое изменение высоты iframe футера
+    function resizeIframe() {
+        const iframe = document.querySelector('.footer-container');
+        if (iframe) {
+            try {
+                iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+            } catch (e) {
+                iframe.style.height = '200px';
+            }
+        }
+    }
+    window.addEventListener('load', resizeIframe);
+    window.addEventListener('resize', resizeIframe);
+
+    // Проверка мобильного устройства
+    function isMobile() {
+        return /Android|webOS|iPhone|iPad|iPod|Windows|BlackBerry|IEMobile|Linux|Opera Mini/i.test(navigator.userAgent);
+    }
+
+    // Проверка Opera Mini
+    function isOperaMini() {
+        return /Opera Mini/i.test(navigator.userAgent);
+    }
+
+    // Показываем баннер Telegram только на мобильных устройствах (кроме Opera Mini)
+    document.addEventListener('DOMContentLoaded', function() {
+        if (isMobile() && !isOperaMini()) {
+            const banner = document.querySelector('.opera-banner');
+            if (banner) banner.classList.add('show');
+        }
+    });
+    </script>
+</body>
+</html>
