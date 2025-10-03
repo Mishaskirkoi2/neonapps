@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temple Run - NeonApps</title>
+    <link rel="stylesheet" href="/styles.css">
+	<link rel="stylesheet" href="/screenshots.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+	    <!-- Подключение шапки с внешнего сервера -->
+    <iframe src="/header.html" 
+            class="header-container" 
+            scrolling="no" 
+            frameborder="0"
+            sandbox="allow-scripts allow-same-origin allow-top-navigation"
+            onload="this.style.height = this.contentWindow.document.body.scrollHeight + 'px'">
+    </iframe>
+    
+    <div class="container">
+        <div class="app-info">
+            <div class="app-info-top">
+                <img src="/games/templerun.png" class="app-icon-large">
+                <div class="app-details">
+                    <div class="app-name-large">Temple Run</div>
+                    <div class="app-requirement-large">Android 2.2+</div>
+                    <div class="app-architecture">Архитектура: ARMv6+</div>
+                </div>
+            </div>
+            <a href="https://drive.usercontent.google.com/download?id=1iMkNl6OCq1Dc7g9KwYq1TUCLG-Dr61w3&export=download&authuser=0" class="download-btn-large">Скачать</a>
+			</div>
+
+        <div class="screenshots">
+            <div class="screenshots-title">Скриншоты</div>
+            <div class="screenshots-grid">
+                <img src="/games/templerun/scr1.jpg" alt="Скриншот 1" class="screenshot" onclick="openModal(0)">
+                <img src="/games/templerun/scr2.jpg" alt="Скриншот 2" class="screenshot" onclick="openModal(1)">
+                <img src="/games/templerun/scr3.jpg" alt="Скриншот 3" class="screenshot" onclick="openModal(2)">
+            </div>
+        </div>
+
+				 <!-- Модальное окно для просмотра скриншотов -->
+        <div id="imageModal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <span class="prev" onclick="changeImage(-1)">&#10094;</span>
+            <span class="next" onclick="changeImage(1)">&#10095;</span>
+            <img class="modal-content" id="modalImage">
+        </div>
+
+        <div class="description-block">
+            <div class="description-title">Описание</div>
+            <div class="description-text">
+                Раннер где нужно убегать от монстров через древние храмы.
+            </div>
+        </div>
+
+		<div id="anycomment-app"></div>
+<script>
+AnyComment = window.AnyComment || []; AnyComment.Comments = [];
+AnyComment.Comments.push({
+    "root": "anycomment-app",
+    "app_id": 7175,
+    "language": "ru"
+})
+var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
+s.src = "https://widget.anycomment.io/comment/embed.js";
+var sa = document.getElementsByTagName("script")[0];
+sa.parentNode.insertBefore(s, s.nextSibling);
+</script>
+		</div>
+        
+        <div class="apps-section">
+            <h2 class="apps-title">Вам также может понравиться</h2>
+        </div>
+
+<div class="apps-grid"> 
+    <div class="app-card">
+        <img src="/games/flappybird.jpeg" alt="Flappy Bird" class="app-icon">
+        <div class="app-name">Flappy Bird</div>
+        <div class="app-requirement">Android 2.2+</div>
+        <a href="/games/flappybird" class="download-btn">Скачать</a>
+    </div>
+    <div class="app-card">
+        <img src="/games/angrybirds.jpg" alt="Angry Birds" class="app-icon">
+        <div class="app-name">Angry Birds</div>
+        <div class="app-requirement">Android 1.6+</div>
+        <a href="/games/angrybirds" class="download-btn">Скачать</a>
+    </div>
+    <div class="app-card">
+        <img src="/games/bubbu.jpg" alt="Bubbu" class="app-icon">
+        <div class="app-name">Bubbu</div>
+        <div class="app-requirement">Android 2.3+</div>
+        <a href="/games/bubbu" class="download-btn">Скачать</a>
+    </div>
+    <div class="app-card">
+        <img src="/games/cuttherope.png" alt="Cut The Rope" class="app-icon">
+        <div class="app-name">Cut The Rope</div>
+        <div class="app-requirement">Android 1.6+</div>
+        <a href="/games/cuttherope" class="download-btn">Скачать</a>
+    </div>
+</div>
+
+        <div class="more-apps">
+            <a href="/games" class="more-apps-btn">Больше игр</a>
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <!-- Подключение футера с внешнего сервера -->
+    <iframe src="/legalelement.html" 
+            class="footer-container" 
+            scrolling="no" 
+            frameborder="0"
+            onload="this.style.height = this.contentWindow.document.body.scrollHeight + 'px'">
+    </iframe>
+	
+	<script src="/screenshots.js"></script>
+
+    <script>
+        // Автоматическое изменение высоты iframe под содержимое футера
+        function resizeIframe() {
+            const iframe = document.querySelector('.footer-container');
+            if (iframe) {
+                try {
+                    iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+                } catch (e) {
+                    // Если возникают проблемы с CORS, устанавливаем фиксированную высоту
+                    iframe.style.height = '200px';
+                }
+            }
+        }
+
+        // Изменяем размер при загрузке страницы и изменении размера окна
+        window.addEventListener('load', resizeIframe);
+        window.addEventListener('resize', resizeIframe);
+    </script>
+</body>
+</html>
+
+
