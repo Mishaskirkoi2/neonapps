@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeonApps - 🎨 Кастомизация</title>
+    <link rel="stylesheet" href="/stylesnew.css">
+</head>
+<body>
+
+    <!-- Подключение шапки с внешнего сервера -->
+    <iframe src="/header.html" 
+            class="header-container" 
+            scrolling="no" 
+            frameborder="0"
+            sandbox="allow-scripts allow-same-origin allow-top-navigation"
+            onload="this.style.height = this.contentWindow.document.body.scrollHeight + 'px'">
+    </iframe>
+
+    <div class="apps-section">
+        <h2 class="apps-title">Кастомизация</h2>
+    </div>
+
+    <div class="apps-section">
+        <h2 class="apps-title">🏠ЛАУНЧЕРЫ</h2>
+    </div>
+
+    <div class="apps-grid">
+        <div class="app-card">
+            <img src="smartisanlauncher.png" class="app-icon">
+            <div class="app-card-content">
+                <div class="app-name">Smartisan Launcher</div>
+                <div class="app-requirement">Android 4.4+</div>
+                <a href="smartisanlauncher/" class="download-btn">Скачать</a>
+            </div>
+        </div>
+        <div class="app-card">
+            <img src="samsunglauncher.png" class="app-icon">
+            <div class="app-card-content">
+                <div class="app-name">Galaxy Launcher</div>
+                <div class="app-requirement">Android 4.0+</div>
+                <a href="samsunglauncher/" class="download-btn">Скачать</a>
+            </div>
+        </div>        
+    </div>
+
+    <div class="apps-grid">
+        <div class="app-card">
+            <img src="novalauncher.png" class="app-icon">
+            <div class="app-card-content">
+                <div class="app-name">Nova Launcher</div>
+                <div class="app-requirement">Android 4.0+</div>
+                <a href="novalauncher/" class="download-btn">Скачать</a>
+            </div>
+        </div>
+        <div class="app-card">
+            <img src="espierlauncher.png" class="app-icon">
+            <div class="app-card-content">
+                <div class="app-name">Espier Launcher</div>
+                <div class="app-requirement">Android 2.1+</div>
+                <a href="espierlauncher/" class="download-btn">Скачать</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="apps-grid">
+        <div class="app-card">
+            <img src="xperialauncher.png" class="app-icon">
+            <div class="app-card-content">
+                <div class="app-name">Xperia Launcher</div>
+                <div class="app-requirement">Android 4.1+</div>
+                <a href="xperialauncher/" class="download-btn">Скачать</a>
+            </div>
+        </div>
+        <div class="app-card">
+            <img src="wp8launcher.png" class="app-icon">
+            <div class="app-card-content">
+                <div class="app-name">WP Launcher 8</div>
+                <div class="app-requirement">Android 4.0+</div>
+                <a href="wp8launcher/" class="download-btn">Скачать</a>
+            </div>
+        </div>        
+    </div>   
+
+    <div class="apps-section">
+        <h2 class="apps-title">🏞️ЖИВЫЕ ОБОИ</h2>
+    </div>
+
+    <div class="apps-grid">
+        <div class="app-card">
+            <img src="nexusrevamped.png" class="app-icon">
+            <div class="app-card-content">
+                <div class="app-name">Nexus Revamped</div>
+                <div class="app-requirement">Android 2.1+</div>
+                <a href="nexusrevamped/" class="download-btn">Скачать</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="apps-section">
+        <h2 class="apps-title">📋ВИДЖЕТЫ</h2>
+    </div>
+
+    <div class="apps-grid">
+        <div class="app-card">
+            <img src="batterywidgetviever.png" class="app-icon">
+            <div class="app-card-content">
+                <div class="app-name">Battery Widget Viewer</div>
+                <div class="app-requirement">Android 1.6+</div>
+                <a href="batterywidgetviewer/" class="download-btn">Скачать</a>
+            </div>
+        </div>
+    </div> 
+
+    <div class="apps-section">
+        <h2 class="apps-title">⌨️КЛАВИАТУРЫ</h2>
+    </div>
+
+    <div class="apps-grid">
+        <div class="app-card">
+            <img src="gboard.png" class="app-icon">
+            <div class="app-card-content">
+                <div class="app-name">Google GBoard</div>
+                <div class="app-requirement">Android 4.2+</div>
+                <a href="googlegboard/" class="download-btn">Скачать</a>
+            </div>
+        </div>
+        <div class="app-card">
+            <img src="yandexklaviatura.png" class="app-icon">
+            <div class="app-card-content">
+                <div class="app-name">Яндекс.Клавиатура</div>
+                <div class="app-requirement">Android 4.0+</div>
+                <a href="yandexklaviatura/" class="download-btn">Скачать</a>
+            </div>
+        </div>        
+    </div>
+
+    <!-- Подключение футера с внешнего сервера -->
+    <iframe src="/legalelement.html" 
+            class="footer-container" 
+            scrolling="no" 
+            frameborder="0"
+            onload="this.style.height = this.contentWindow.document.body.scrollHeight + 'px'">
+    </iframe>
+
+    <script src="/screenshots.js"></script>
+    <script>
+        // Автоматическое изменение высоты iframe под содержимое футера
+        function resizeIframe() {
+            const iframe = document.querySelector('.footer-container');
+            if (iframe) {
+                try {
+                    iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+                } catch (e) {
+                    // Если возникают проблемы с CORS, устанавливаем фиксированную высоту
+                    iframe.style.height = '200px';
+                }
+            }
+        }
+
+        // Изменяем размер при загрузке страницы и изменении размера окна
+        window.addEventListener('load', resizeIframe);
+        window.addEventListener('resize', resizeIframe);
+    </script>
+</body>
+</html>
