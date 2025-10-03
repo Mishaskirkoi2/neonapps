@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenVK Legacy - NeonApps</title>
+    <link rel="stylesheet" href="/styles.css">
+	<link rel="stylesheet" href="/screenshots.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+        <!-- Подключение шапки с внешнего сервера -->
+    <iframe src="/header.html" 
+            class="header-container" 
+            scrolling="no" 
+            frameborder="0"
+            sandbox="allow-scripts allow-same-origin allow-top-navigation"
+            onload="this.style.height = this.contentWindow.document.body.scrollHeight + 'px'">
+    </iframe>
+    
+    <div class="container">
+        <div class="app-info">
+            <div class="app-info-top">
+                <img src="/internet/openvk.png" class="app-icon-large">
+                <div class="app-details">
+                    <div class="app-name-large">OpenVK Legacy</div>
+                    <div class="app-requirement-large">Android 2.1+</div>
+                    <div class="app-architecture">Архитектура: ARMv6+</div>
+                </div>
+            </div>
+            <a href="https://drive.usercontent.google.com/download?id=1LXsYOGb52trBm72RgzIkXFFHWPrtv68N&export=download&authuser=0" class="download-btn-large">Скачать</a>
+        </div>
+
+        <div class="screenshots">
+            <div class="screenshots-title">Скриншоты</div>
+            <div class="screenshots-grid">
+                <img src="/internet/openvk/screenshot1.png" alt="Скриншот 1" class="screenshot" onclick="openModal(0)">
+                <img src="/internet/openvk/screenshot2.png" alt="Скриншот 2" class="screenshot" onclick="openModal(1)">
+            </div>
+        </div>
+
+				 <!-- Модальное окно для просмотра скриншотов -->
+        <div id="imageModal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <span class="prev" onclick="changeImage(-1)">&#10094;</span>
+            <span class="next" onclick="changeImage(1)">&#10095;</span>
+            <img class="modal-content" id="modalImage">
+        </div>
+
+        <div class="description-block">
+            <div class="description-title">Описание</div>
+            <div class="description-text">
+                Социальная сеть с открытым исходным кодом.
+            </div>
+        </div>
+
+        <div id="anycomment-app"></div>
+<script>
+AnyComment = window.AnyComment || []; AnyComment.Comments = [];
+AnyComment.Comments.push({
+    "root": "anycomment-app",
+    "app_id": 7175,
+    "language": "ru"
+})
+var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
+s.src = "https://widget.anycomment.io/comment/embed.js";
+var sa = document.getElementsByTagName("script")[0];
+sa.parentNode.insertBefore(s, s.nextSibling);
+</script>
+		</div>
+        
+        <div class="apps-section">
+            <h2 class="apps-title">Вам также может понравиться</h2>
+        </div>
+
+        <div class="apps-grid">
+            <div class="app-card">
+                <img src="/internet/katemobile.png" alt="Kate Mobile" class="app-icon">
+                <div class="app-name">Kate Mobile</div>
+                <div class="app-requirement">Android 4.1+</div>
+                <a href="/internet/katemobile" class="download-btn">Скачать</a>
+            </div>
+            <div class="app-card">
+                <img src="/internet/telegram.png" alt="Telegram" class="app-icon">
+                <div class="app-name">Telegram</div>
+                <div class="app-requirement">Android 4.4+</div>
+                <a href="/internet/telegram" class="download-btn">Скачать</a>
+            </div>
+            <div class="app-card">
+                <img src="/internet/tiktoklite.png" alt="Tiktok Lite" class="app-icon">
+                <div class="app-name">TikTok Lite</div>
+                <div class="app-requirement">Android 4.1+</div>
+                <a href="/internet/tiktoklite" class="download-btn">Скачать</a>
+            </div>
+            <div class="app-card">
+                <img src="/internet/operamini.png" alt="Opera Mini" class="app-icon">
+                <div class="app-name">Opera Mini</div>
+                <div class="app-requirement">Android 1.5+</div>
+                <a href="/internet/operamini" class="download-btn">Скачать</a>
+            </div>
+        </div>
+
+        <div class="more-apps">
+            <a href="/internet" class="more-apps-btn">Больше приложений</a>
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <!-- Подключение футера с внешнего сервера -->
+    <iframe src="/legalelement.html" 
+            class="footer-container" 
+            scrolling="no" 
+            frameborder="0"
+            onload="this.style.height = this.contentWindow.document.body.scrollHeight + 'px'">
+    </iframe>
+
+	<script src="/screenshots.js"></script>
+
+    <script>
+        // Автоматическое изменение высоты iframe под содержимое футера
+        function resizeIframe() {
+            const iframe = document.querySelector('.footer-container');
+            if (iframe) {
+                try {
+                    iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+                } catch (e) {
+                    // Если возникают проблемы с CORS, устанавливаем фиксированную высоту
+                    iframe.style.height = '200px';
+                }
+            }
+        }
+
+        // Изменяем размер при загрузке страницы и изменении размера окна
+        window.addEventListener('load', resizeIframe);
+        window.addEventListener('resize', resizeIframe);
+    </script>
+</body>
+</html>
